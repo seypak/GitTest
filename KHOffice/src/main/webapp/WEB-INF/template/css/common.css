@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+@import url("reset.css");
+
+/**********popup**********/
+#roundrobin th, #roundrobin td {border-left: 1px solid #6d6d6d; border-bottom: 1px solid #6d6d6d; border-right: 1px solid #6d6d6d; border-top: 1px solid #6d6d6d;}
+#roundrobin {padding: 20px;}
+#roundrobin h1 {margin-top: 20px; margin-bottom: 40px; text-align: center; color:#000; font-size: 32px; font-weight: bold;}
+#roundrobin .top {margin-bottom: 30px;}
+#roundrobin .info {float: left; }
+#roundrobin .info th {padding-left: 15px; padding-top: 8px; padding-bottom: 8px; text-align: left; font-size: 14px; font-weight: 300; color:#202020; letter-spacing: -0.5px; background-color: #ececec;}
+#roundrobin .info td {padding:6px 10px; font-size: 14px; color:#202020;}
+
+#roundrobin .sign {float: right; border: 1px solid #6d6d6d;}
+#roundrobin .sign .tr th {height:30px; font-size: 14px; font-weight: 300; color:#202020; background-color: #ececec;}
+#roundrobin .sign th {padding:6px 0; border-right: 1px solid #6d6d6d; font-weight: normal;}
+#roundrobin .sign td {border-right: 1px solid #6d6d6d;}
+#roundrobin .sign .signbox {height: 97px; border-top: 1px solid #6d6d6d;}
+
+#roundrobin .content {}
+#roundrobin .content th {padding-left: 15px; padding-top: 10px; padding-bottom: 10px; text-align: left; font-size: 14px; font-weight: 300; color:#202020; letter-spacing: -0.5px; background-color: #ececec;}
+#roundrobin .content td {padding: 7px;}
+#roundrobin .content .trh {height:400px;}
+#roundrobin .content .trh2 {height:200px;}
+
+
+
+
+#roundrobin .content .i_red {display:inline-block; margin-right: 5px; color: red;}
+#roundrobin .content select {width:200px; padding-left:5px; padding-top: 5px; padding-bottom: 5px;}
+#roundrobin .content .use_date {display:inline-block; margin-left: 10px; margin-right: 10px; font-weight: bold; color: #2b2b2b; font-size: 14px;}
+#roundrobin .content input {padding-left: 7px; padding-top: 3px; padding-bottom: 3px;}
+#roundrobin .content textarea {width: 100%; height: 200px; padding: 10px; line-height: 21px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

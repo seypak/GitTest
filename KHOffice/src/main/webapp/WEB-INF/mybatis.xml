@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 프로퍼티 파일로부터 데이터를 읽어온다. -->
+	<context:property-placeholder
+		location="classpath:db.properties" />
+
+	<!-- 커넥션 풀을 만들기위한 과정. db.properties에 있는 값을 가져와 EL로 꺼냄 -->
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath*:mybatis/*.xml</value>
+			</list>
+			<!-- 여러경로의 맵퍼파일을 추가하고싶다면 list태그안에 value태그로 선언해준다. -->
+		</property>
+		<!-- mapperLocations에는 맵퍼파일의 경로를 잡는다 value에 와일드카드를써서 여러개의 파일을 한번에 지정할 수 
+			있다. -->
+
+	</bean>
+
+
+	<!-- DAO클래스는 SqlSessionDaoSupport를 상속받기때문에 어노테이션으로 잡아줄 수 있는 방법이 없어서 반드시 
+		bean으로 등록해서 사용해야한다. 어노테이션을 사용하고싶다면, 상속받지말고 바로 sqlSession을 따로 객체화해주고 Autowired를 
+		사용해야한다. -->
+
+	<bean id="dao" class="approval.dao.BoardDao">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+
+</beans>
